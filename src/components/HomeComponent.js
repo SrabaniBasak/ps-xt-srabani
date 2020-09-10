@@ -9,10 +9,10 @@ class HomeComponent extends React.PureComponent {
         return (            
             <Container fluid={true}>
                 <Row>
-                    <Col xs="12" md="2">
+                    <Col sm="12" md="3" lg="2">
                         <FiltersComponent/>
                     </Col>
-                    <Col xs="12" md="10">
+                    <Col sm="12" md="9" lg="10">
                         <LaunchListComponent />
                     </Col>
                 </Row>

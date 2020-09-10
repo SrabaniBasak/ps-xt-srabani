@@ -4,8 +4,9 @@ import {Provider} from 'react-redux';
 import Router from './Router';
 import store from './store';
 import HeaderComponent from './components/Header';
+import FooterComponent from './components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import './App.scss';
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
                 <BrowserRouter>
                     <HeaderComponent/>                
                     <Router/>
+                    <FooterComponent/>
                 </BrowserRouter>
             </div>
         </Provider>

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Container, Row, Col} from 'reactstrap';
+import {func} from 'prop-types';
 import {connect} from 'react-redux';
 import _ from 'lodash';
 import {fetchLaunchList} from '../store/actions/launchAction';
@@ -29,48 +30,57 @@ class FiltersComponent extends React.PureComponent {
     render() {
         const { years, queryParam } = this.state
 
-        return (            
-            <Container fluid={true} className="filter__container">
-                <Row>
-                    <Col>
-                        <p>Sucessful Year</p>
-                        <Row>
-                            
-                            {
-                                years.map((year, index) => <Col xs="6" key={index}><p className={`filter-params ${_.isEqual(queryParam.launch_year, year) ? 'active' : 'inactive' }`} onClick={this.handleFilter.bind(this, 'launch_year', year)}>{year}</p></Col>)
-                            }
-                            
-                        </Row>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <p>Sucessful Launch</p>
-                        <Row>
-                            <Col><p className={`filter-params ${!_.isNull(queryParam.launch_success) && queryParam.launch_success ? 'active' : '' }`} onClick={this.handleFilter.bind(this, 'launch_success', true)}>True</p></Col>
-                            <Col><p className={`filter-params ${!_.isNull(queryParam.launch_success) && !queryParam.launch_success ? 'active' : '' }`} onClick={this.handleFilter.bind(this, 'launch_success', false)}>False</p></Col>
-                        </Row>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <p>Sucessful Land</p>
-                        <Row>
-                            <Col><p className={`filter-params ${!_.isNull(queryParam.land_success) && queryParam.land_success ? 'active' : '' }`}  onClick={this.handleFilter.bind(this, 'land_success', true)}>True</p></Col>
-                            <Col><p className={`filter-params ${!_.isNull(queryParam.land_success) && !queryParam.land_success ? 'active' : '' }`}  onClick={this.handleFilter.bind(this, 'land_success', false)}>False</p></Col>
-                        </Row>
-                    </Col>
-                </Row>
-            </Container>     
+        return (  
+            <aside>  
+                <Container fluid={true} className="filter__container">
+                    <h5 className="text-center">Filters</h5>     
+                    <Row>
+                        <Col>
+                            <p className="filter__container__heading">Launch Year</p>
+                            <Row>                            
+                                {
+                                    years.map((year, index) => <Col xs="6" key={index}>
+                                                                    <p 
+                                                                        className={`filter-params ${_.isEqual(queryParam.launch_year, year) ? 'active' : '' }`} 
+                                                                        onClick={this.handleFilter.bind(this, 'launch_year', year)}
+                                                                    >
+                                                                        {year}
+                                                                    </p>
+                                                                </Col>
+                                            )
+                                }                                
+                            </Row>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <p className="filter__container__heading">Sucessful Launch</p>
+                            <Row>
+                                <Col><p className={`filter-params ${!_.isNull(queryParam.launch_success) && queryParam.launch_success ? 'active' : '' }`} onClick={this.handleFilter.bind(this, 'launch_success', true)}>True</p></Col>
+                                <Col><p className={`filter-params ${!_.isNull(queryParam.launch_success) && !queryParam.launch_success ? 'active' : '' }`} onClick={this.handleFilter.bind(this, 'launch_success', false)}>False</p></Col>
+                            </Row>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <p className="filter__container__heading">Sucessful Land</p>
+                            <Row>
+                                <Col><p className={`filter-params ${!_.isNull(queryParam.land_success) && queryParam.land_success ? 'active' : '' }`}  onClick={this.handleFilter.bind(this, 'land_success', true)}>True</p></Col>
+                                <Col><p className={`filter-params ${!_.isNull(queryParam.land_success) && !queryParam.land_success ? 'active' : '' }`}  onClick={this.handleFilter.bind(this, 'land_success', false)}>False</p></Col>
+                            </Row>
+                        </Col>
+                    </Row>
+                </Container>     
+                
+            </aside>    
         )
     }
 }
 
-// const mapStateToProps = (state) => {
-//     return {
-//         launch: state.launchReducer
-//     }
-// }
+
+FiltersComponent.propTypes = {
+    fetchLaunchList: func
+};
 
 const mapStateToDispatch = {
     fetchLaunchList

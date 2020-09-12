@@ -1,14 +1,12 @@
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import {Route, Switch} from 'react-router-dom';
-const HomeComponent = lazy(() => import('./components/HomeComponent'));
+import HomeComponent from './components/HomeComponent';
 
 const Router = () => {
-    return (        
-        <Suspense fallback={<div>Loading...</div>}>
-            <Switch>
-                <Route path="/" component={HomeComponent} />
-            </Switch>
-        </Suspense>
+    return (
+        <Switch>
+            <Route path="/" component={HomeComponent} />
+        </Switch>
     )
 }
 

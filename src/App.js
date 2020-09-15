@@ -17,9 +17,9 @@ function App() {
         <Provider store={store}>  
             <div className="App">
                 <StaticRouter history={history}>
-                    <HeaderComponent/>                
-                    <Router/>
-                    <FooterComponent/>
+                    <HeaderComponent data-test="header"/>                
+                    <Router data-test="mainContent"/>
+                    <FooterComponent data-test="footer"/>
                 </StaticRouter>
             </div>
         </Provider>

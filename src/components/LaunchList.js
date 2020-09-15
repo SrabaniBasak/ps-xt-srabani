@@ -25,7 +25,7 @@ class LaunchListComponent extends React.PureComponent {
                         <Row>                    
                             {
                                 lists.map((list, index) => <Col sm="12" md="6" lg="3" key={index}>
-                                                                <div className="launch__list__card">
+                                                                <div className="launch__list__card" data-test="launch__list__card">
                                                                     <div className="image__wrapper">
                                                                         <img 
                                                                             src={list.links.mission_patch_small} 

@@ -1,7 +1,9 @@
 import React from 'react';
 import {Container, Row, Col} from 'reactstrap';
-import FiltersComponent from './Filters';
-import LaunchListComponent from './LaunchList';
+import loadable from '@loadable/component';
+
+const FiltersComponent = loadable(() => import('./Filters'));
+const LaunchListComponent = loadable(() => import('./LaunchList'));
 
 class HomeComponent extends React.PureComponent {
     

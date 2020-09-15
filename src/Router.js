@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
-import HomeComponent from './components/HomeComponent';
+import loadable from '@loadable/component';
+const HomeComponent = loadable(() => import('./components/HomeComponent'));
 
 const Router = () => {
     return (

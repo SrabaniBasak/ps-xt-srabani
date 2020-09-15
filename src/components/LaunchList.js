@@ -24,7 +24,7 @@ class LaunchListComponent extends React.PureComponent {
                     <Container fluid={true}>
                         <Row>                    
                             {
-                                lists.map((list, index) => <Col sm="12" md="4" lg="3" key={index}>
+                                lists.map((list, index) => <Col sm="12" md="6" lg="3" key={index}>
                                                                 <div className="launch__list__card">
                                                                     <div className="image__wrapper">
                                                                         <img 
